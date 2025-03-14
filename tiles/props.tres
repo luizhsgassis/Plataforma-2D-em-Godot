@@ -1,0 +1,97 @@
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dm42ck1yplm4t"]
+
+[ext_resource type="Texture2D" uid="uid://chqu4p0aa71qv" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="1_hqjse"]
+[ext_resource type="Texture2D" uid="uid://c2v15m6dq05qm" path="res://sprites/Seasonal Tilesets/3 - Tropics/Tropics_entities (16 x 16).png" id="2_ftfmx"]
+[ext_resource type="Texture2D" uid="uid://d3msu85o83hs7" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Flowers (16 x 16).png" id="3_hrtqm"]
+[ext_resource type="Texture2D" uid="uid://c7wqgkr46bydr" path="res://sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="4_umvvg"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_p57ef"]
+tile_data = PackedInt32Array(65536, 196608, 5, 65538, 196608, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+texture = ExtResource("1_hqjse")
+15:1/size_in_atlas = Vector2i(3, 1)
+15:1/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+5:1/size_in_atlas = Vector2i(3, 3)
+5:1/0 = 0
+9:1/size_in_atlas = Vector2i(3, 1)
+9:1/0 = 0
+18:4/0 = 0
+14:3/size_in_atlas = Vector2i(5, 1)
+14:3/0 = 0
+14:4/0 = 0
+16:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0kbh"]
+texture = ExtResource("2_ftfmx")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+11:3/0 = 0
+13:3/0 = 0
+15:3/0 = 0
+12:5/0 = 0
+14:5/0 = 0
+12:6/0 = 0
+14:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xo1q6"]
+texture = ExtResource("3_hrtqm")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcfva"]
+texture = ExtResource("4_umvvg")
+1:1/size_in_atlas = Vector2i(3, 3)
+1:1/0 = 0
+5:1/size_in_atlas = Vector2i(3, 3)
+5:1/0 = 0
+9:1/size_in_atlas = Vector2i(3, 3)
+9:1/0 = 0
+15:2/size_in_atlas = Vector2i(3, 1)
+15:2/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+1:5/0 = 0
+3:5/0 = 0
+14:5/0 = 0
+16:5/0 = 0
+18:5/0 = 0
+5:5/size_in_atlas = Vector2i(3, 1)
+5:5/0 = 0
+9:5/size_in_atlas = Vector2i(4, 1)
+9:5/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+sources/1 = SubResource("TileSetAtlasSource_k0kbh")
+sources/2 = SubResource("TileSetAtlasSource_xo1q6")
+sources/4 = SubResource("TileSetAtlasSource_mcfva")
+pattern_0 = SubResource("TileMapPattern_p57ef")
