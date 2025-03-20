@@ -1,9 +1,12 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dm42ck1yplm4t"]
+[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://dm42ck1yplm4t"]
 
 [ext_resource type="Texture2D" uid="uid://chqu4p0aa71qv" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="1_hqjse"]
 [ext_resource type="Texture2D" uid="uid://c2v15m6dq05qm" path="res://sprites/Seasonal Tilesets/3 - Tropics/Tropics_entities (16 x 16).png" id="2_ftfmx"]
 [ext_resource type="Texture2D" uid="uid://d3msu85o83hs7" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Flowers (16 x 16).png" id="3_hrtqm"]
+[ext_resource type="Texture2D" uid="uid://dlynebqtpihih" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="4_k0kbh"]
 [ext_resource type="Texture2D" uid="uid://c7wqgkr46bydr" path="res://sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="4_umvvg"]
+[ext_resource type="Texture2D" uid="uid://cvtikk4xhn5lw" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Rock_shape (16 x 16).png" id="6_xo1q6"]
+[ext_resource type="Texture2D" uid="uid://bhqd8wktlv3di" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Snack_machine_Bench_Trash_bin (16 x 16).png" id="7_mcfva"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_p57ef"]
 tile_data = PackedInt32Array(65536, 196608, 5, 65538, 196608, 5)
@@ -64,6 +67,24 @@ texture = ExtResource("3_hrtqm")
 2:0/0 = 0
 3:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwux"]
+texture = ExtResource("4_k0kbh")
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+9:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+4:4/0 = 0
+4:3/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mcfva"]
 texture = ExtResource("4_umvvg")
 1:1/size_in_atlas = Vector2i(3, 3)
@@ -89,9 +110,26 @@ texture = ExtResource("4_umvvg")
 9:5/size_in_atlas = Vector2i(4, 1)
 9:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6wtvi"]
+texture = ExtResource("6_xo1q6")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j01if"]
+texture = ExtResource("7_mcfva")
+6:2/0 = 0
+3:2/size_in_atlas = Vector2i(3, 1)
+3:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 sources/1 = SubResource("TileSetAtlasSource_k0kbh")
 sources/2 = SubResource("TileSetAtlasSource_xo1q6")
 sources/4 = SubResource("TileSetAtlasSource_mcfva")
+sources/3 = SubResource("TileSetAtlasSource_fuwux")
+sources/5 = SubResource("TileSetAtlasSource_6wtvi")
+sources/6 = SubResource("TileSetAtlasSource_j01if")
 pattern_0 = SubResource("TileMapPattern_p57ef")
