@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://86ykxta7tofl"]
+[gd_scene load_steps=23 format=4 uid="uid://86ykxta7tofl"]
 
 [ext_resource type="PackedScene" uid="uid://bn034di17oj1c" path="res://entities/player.tscn" id="1_grvk3"]
 [ext_resource type="TileSet" uid="uid://b64457t4jvc3r" path="res://tiles/terrain.tres" id="2_j8cmn"]
@@ -13,6 +13,7 @@
 [ext_resource type="TileSet" uid="uid://dm42ck1yplm4t" path="res://tiles/props.tres" id="10_ttii7"]
 [ext_resource type="PackedScene" uid="uid://be6xbt66wk1pn" path="res://entities/camera.tscn" id="12_uy2sc"]
 [ext_resource type="PackedScene" uid="uid://dfw3hegyt8y5s" path="res://entities/death_zone.tscn" id="13_o3kau"]
+[ext_resource type="PackedScene" uid="uid://6hhnb8w4nuup" path="res://entities/skeleton.tscn" id="14_g24r1"]
 
 [sub_resource type="GDScript" id="GDScript_uy2sc"]
 script/source = "extends Node2D
@@ -140,6 +141,9 @@ sources/0 = SubResource("TileSetAtlasSource_uy2sc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uy2sc"]
 size = Vector2(32, 208)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3kau"]
+size = Vector2(20, 207)
+
 [node name="Tropic" type="Node2D"]
 script = SubResource("GDScript_uy2sc")
 
@@ -214,5 +218,14 @@ debug_color = Color(0, 0.65098, 0, 0.419608)
 
 [node name="deathZone" parent="." groups=["Death Zone"] instance=ExtResource("13_o3kau")]
 position = Vector2(189, 198)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, 105)
+shape = SubResource("RectangleShape2D_o3kau")
+
+[node name="Skeleton" parent="." instance=ExtResource("14_g24r1")]
+position = Vector2(242, 160)
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]

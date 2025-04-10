@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Aula_27_02"
-run/main_scene="uid://bx5f32eygxuuh"
+run/main_scene="uid://86ykxta7tofl"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
