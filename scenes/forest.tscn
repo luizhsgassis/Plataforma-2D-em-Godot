@@ -104,6 +104,7 @@ position = Vector2(804, 104.5)
 shape = SubResource("RectangleShape2D_3knxq")
 
 [node name="deathZone" parent="." groups=["Death Zone"] instance=ExtResource("11_ercsu")]
+position = Vector2(360, 218)
 
 [node name="endLevel" type="Area2D" parent="." groups=["End Level"]]
 

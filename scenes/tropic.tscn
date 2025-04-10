@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://86ykxta7tofl"]
+[gd_scene load_steps=21 format=4 uid="uid://86ykxta7tofl"]
 
 [ext_resource type="PackedScene" uid="uid://bn034di17oj1c" path="res://entities/player.tscn" id="1_grvk3"]
-[ext_resource type="Script" uid="uid://bxvpyna7pn6bu" path="res://scripts/tropic.gd" id="1_o3kau"]
 [ext_resource type="TileSet" uid="uid://b64457t4jvc3r" path="res://tiles/terrain.tres" id="2_j8cmn"]
 [ext_resource type="Texture2D" uid="uid://bd5xb71oqei2w" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="3_mtmls"]
 [ext_resource type="Texture2D" uid="uid://chia0i2u8lvfa" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/4 - Background_clouds.png" id="4_o55n4"]
@@ -13,6 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://b2q3a2n7pfups" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/House (112 x 96).png" id="10_tqg4o"]
 [ext_resource type="TileSet" uid="uid://dm42ck1yplm4t" path="res://tiles/props.tres" id="10_ttii7"]
 [ext_resource type="PackedScene" uid="uid://be6xbt66wk1pn" path="res://entities/camera.tscn" id="12_uy2sc"]
+[ext_resource type="PackedScene" uid="uid://dfw3hegyt8y5s" path="res://entities/death_zone.tscn" id="13_o3kau"]
+
+[sub_resource type="GDScript" id="GDScript_uy2sc"]
+script/source = "extends Node2D
+
+@onready var player: CharacterBody2D = $Player
+
+func _ready():
+	# Corrigir a conexão do sinal para usar um Callable
+	$GameOverArea.connect(\"area_entered\", Callable(self, \"_on_game_over_area_area_entered\"))
+
+func _on_game_over_area_area_entered(area: Area2D) -> void:
+	print(\"Area entered:\", area.name)  # Debug
+	if area.is_in_group(\"Player\"):
+		print(\"Player entered GameOverArea\")  # Debug
+		call_deferred(\"change_to_game_over_scene\")
+
+func change_to_game_over_scene():
+	print(\"Changing to game_over.tscn\")  # Debug
+	get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n67hu"]
 animations = [{
@@ -121,7 +141,7 @@ sources/0 = SubResource("TileSetAtlasSource_uy2sc")
 size = Vector2(32, 208)
 
 [node name="Tropic" type="Node2D"]
-script = ExtResource("1_o3kau")
+script = SubResource("GDScript_uy2sc")
 
 [node name="Player" parent="." instance=ExtResource("1_grvk3")]
 position = Vector2(28, 136)
@@ -185,11 +205,14 @@ tile_set = ExtResource("10_ttii7")
 
 [node name="Camera2D" parent="." instance=ExtResource("12_uy2sc")]
 
-[node name="GameOverArea" type="Area2D" parent="."]
+[node name="GameOverArea" type="Area2D" parent="." groups=["End Game"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameOverArea"]
-position = Vector2(97, 103)
+position = Vector2(799, 104)
 shape = SubResource("RectangleShape2D_uy2sc")
 debug_color = Color(0, 0.65098, 0, 0.419608)
+
+[node name="deathZone" parent="." groups=["Death Zone"] instance=ExtResource("13_o3kau")]
+position = Vector2(189, 198)
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]

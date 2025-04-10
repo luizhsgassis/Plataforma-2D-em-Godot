@@ -46,9 +46,15 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif area.is_in_group('End Level'):
 		# Agende a troca para a próxima cena com call_deferred
 		call_deferred("change_to_next_scene")
+	elif area.is_in_group("End Game"):
+		call_deferred("change_to_game_over_scene")
 
 func reload_scene() -> void:
 	get_tree().reload_current_scene()
 
 func change_to_next_scene() -> void:
 	get_tree().change_scene_to_file("res://scenes/tropic.tscn")
+
+func change_to_game_over_scene():
+	print("Changing to game_over.tscn")  # Debug
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

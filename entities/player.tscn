@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://csg0wrtus0wte" path="res://sprites/dragon/Running (32 x 32).png" id="3_d62l7"]
 [ext_resource type="Texture2D" uid="uid://bd2bjpfvlra3x" path="res://sprites/dragon/Jump (32 x 32).png" id="3_pbmfj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ck8gu"]
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qly61"]
+size = Vector2(25, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kuyx"]
 atlas = ExtResource("1_gwclt")
@@ -138,16 +138,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rfe5m"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfe5m"]
+size = Vector2(25, 22)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_37yxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
-position = Vector2(-2, -5)
-shape = SubResource("CapsuleShape2D_ck8gu")
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_qly61")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
@@ -160,8 +160,8 @@ autoplay = "idle"
 z_index = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -3)
-shape = SubResource("CircleShape2D_rfe5m")
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_rfe5m")
 debug_color = Color(1, 0, 0, 0.694118)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
