@@ -41,6 +41,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Death Zone'):
-		get_tree().reload_current_scene()
+		# Agende a recarga da cena com call_deferred
+		call_deferred("reload_scene")
 	elif area.is_in_group('End Level'):
-		get_tree().change_scene_to_file("res://scenes/tropic.tscn")
+		# Agende a troca para a próxima cena com call_deferred
+		call_deferred("change_to_next_scene")
+
+func reload_scene() -> void:
+	get_tree().reload_current_scene()
+
+func change_to_next_scene() -> void:
+	get_tree().change_scene_to_file("res://scenes/tropic.tscn")

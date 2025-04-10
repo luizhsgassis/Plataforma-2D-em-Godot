@@ -8,6 +8,6 @@ func _ready() -> void:
 	else:
 		push_error("Não foi possível encontrar o player")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player:
 		position = lerp(position, player.position, 0.1)
