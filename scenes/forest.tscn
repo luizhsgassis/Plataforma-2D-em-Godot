@@ -92,12 +92,14 @@ limit_top = 0
 limit_right = 804
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-10, 105)
 shape = SubResource("RectangleShape2D_3knxq")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(804, 104.5)

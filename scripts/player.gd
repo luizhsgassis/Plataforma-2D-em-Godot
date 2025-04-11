@@ -20,9 +20,7 @@ func _physics_process(delta: float) -> void:
 			anim.play("idle")
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and jumpCount < maxJump:
-		velocity.y = jumpVelocity
-		jumpCount += 1
-		anim.play("jump")
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,6 +37,11 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func jump():
+	velocity.y = jumpVelocity
+	jumpCount += 1
+	anim.play("jump")
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group('Death Zone'):
 		# Agende a recarga da cena com call_deferred
@@ -48,6 +51,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		call_deferred("change_to_next_scene")
 	elif area.is_in_group("End Game"):
 		call_deferred("change_to_game_over_scene")
+	elif area.is_in_group("Enemies"):
+		if velocity.y > 0:
+			area.take_damage()
+			jump()
+		else:
+			reload_scene()
 
 func reload_scene() -> void:
 	get_tree().reload_current_scene()
