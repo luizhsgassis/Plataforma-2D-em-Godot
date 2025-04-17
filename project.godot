@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Aula_27_02"
+config/name="Game_Aula"
 run/main_scene="uid://bu8axmj52yraa"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
