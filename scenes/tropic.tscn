@@ -227,6 +227,6 @@ position = Vector2(-10, 105)
 shape = SubResource("RectangleShape2D_o3kau")
 
 [node name="Skeleton" parent="." instance=ExtResource("14_g24r1")]
-position = Vector2(138, 159)
+position = Vector2(162, 92)
 
 [connection signal="area_entered" from="GameOverArea" to="." method="_on_game_over_area_area_entered"]

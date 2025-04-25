@@ -161,20 +161,20 @@ collision_layer = 4
 script = ExtResource("1_yag7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_b8wbt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_20vpb")
-animation = &"atack"
+animation = &"walking"
 autoplay = "walking"
-frame = 2
-frame_progress = 0.949641
 
 [node name="Hitbox" type="Area2D" parent="." groups=["Enemies"]]
 script = ExtResource("3_fpmxe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 position = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_yag7t")
 debug_color = Color(1, 0, 0, 0.435294)
@@ -182,3 +182,8 @@ debug_color = Color(1, 0, 0, 0.435294)
 [node name="FallDetect" type="RayCast2D" parent="."]
 position = Vector2(12, 6)
 target_position = Vector2(0, 16)
+
+[node name="PlayerDetect" type="RayCast2D" parent="."]
+position = Vector2(3, 0)
+target_position = Vector2(30, 0)
+collision_mask = 2
