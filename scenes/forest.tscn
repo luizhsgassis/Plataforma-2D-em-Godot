@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bx5f32eygxuuh"]
+[gd_scene load_steps=21 format=4 uid="uid://bx5f32eygxuuh"]
 
 [ext_resource type="PackedScene" uid="uid://bn034di17oj1c" path="res://entities/player.tscn" id="1_xijx7"]
 [ext_resource type="TileSet" uid="uid://b64457t4jvc3r" path="res://tiles/terrain.tres" id="2_0afsd"]
@@ -11,6 +11,13 @@
 [ext_resource type="TileSet" uid="uid://dm42ck1yplm4t" path="res://tiles/props.tres" id="9_0nboi"]
 [ext_resource type="PackedScene" uid="uid://be6xbt66wk1pn" path="res://entities/camera.tscn" id="10_3knxq"]
 [ext_resource type="PackedScene" uid="uid://dfw3hegyt8y5s" path="res://entities/death_zone.tscn" id="11_ercsu"]
+[ext_resource type="Texture2D" uid="uid://bcwtsrykw462p" path="res://entities/pspace.png" id="12_j3csf"]
+[ext_resource type="Texture2D" uid="uid://d0cj0p4y45qre" path="res://entities/L.png" id="13_di0nb"]
+[ext_resource type="Script" uid="uid://b80ux6frjv7uv" path="res://scripts/pspace.gd" id="13_uwbj1"]
+[ext_resource type="Script" uid="uid://ebhf25pbpco4" path="res://scripts/l.gd" id="14_pyn53"]
+[ext_resource type="Texture2D" uid="uid://d1ch6ktaejmx3" path="res://entities/R.png" id="15_uwbj1"]
+[ext_resource type="Script" uid="uid://c7el21s5uq1vn" path="res://scripts/r.gd" id="16_pyn53"]
+[ext_resource type="Texture2D" uid="uid://cx2jjfc0s2m52" path="res://entities/instructions.png" id="18_i1j6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3knxq"]
 size = Vector2(20, 207)
@@ -50,6 +57,7 @@ motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(288, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Tree_row1"]
+position = Vector2(-5, 0)
 texture = ExtResource("5_i1yi8")
 centered = false
 
@@ -114,3 +122,26 @@ position = Vector2(360, 218)
 position = Vector2(791, 104.5)
 shape = SubResource("RectangleShape2D_ercsu")
 debug_color = Color(0, 1, 0, 0.490196)
+
+[node name="Pspace" type="Sprite2D" parent="."]
+position = Vector2(50, 121)
+scale = Vector2(0.290076, 0.243623)
+texture = ExtResource("12_j3csf")
+script = ExtResource("13_uwbj1")
+
+[node name="R" type="Sprite2D" parent="."]
+position = Vector2(58, 147)
+scale = Vector2(0.160035, 0.159776)
+texture = ExtResource("15_uwbj1")
+script = ExtResource("16_pyn53")
+
+[node name="L" type="Sprite2D" parent="."]
+position = Vector2(42, 147)
+scale = Vector2(0.167214, 0.164384)
+texture = ExtResource("13_di0nb")
+script = ExtResource("14_pyn53")
+
+[node name="Instructions" type="Sprite2D" parent="."]
+position = Vector2(52, 117)
+scale = Vector2(0.0491943, 0.045166)
+texture = ExtResource("18_i1j6r")
