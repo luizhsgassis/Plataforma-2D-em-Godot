@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://bx5f32eygxuuh"]
+[gd_scene load_steps=22 format=4 uid="uid://bx5f32eygxuuh"]
 
 [ext_resource type="PackedScene" uid="uid://bn034di17oj1c" path="res://entities/player.tscn" id="1_xijx7"]
 [ext_resource type="TileSet" uid="uid://b64457t4jvc3r" path="res://tiles/terrain.tres" id="2_0afsd"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d1ch6ktaejmx3" path="res://entities/R.png" id="15_uwbj1"]
 [ext_resource type="Script" uid="uid://c7el21s5uq1vn" path="res://scripts/r.gd" id="16_pyn53"]
 [ext_resource type="Texture2D" uid="uid://cx2jjfc0s2m52" path="res://entities/instructions.png" id="18_i1j6r"]
+[ext_resource type="PackedScene" uid="uid://6hhnb8w4nuup" path="res://entities/skeleton.tscn" id="19_3akcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3knxq"]
 size = Vector2(20, 207)
@@ -145,3 +146,6 @@ script = ExtResource("14_pyn53")
 position = Vector2(52, 117)
 scale = Vector2(0.0491943, 0.045166)
 texture = ExtResource("18_i1j6r")
+
+[node name="Skeleton" parent="." instance=ExtResource("19_3akcx")]
+position = Vector2(329, 140)
